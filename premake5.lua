@@ -2,7 +2,7 @@
 
 root_dir = os.getcwd()
 
-workspace "2gis_test_work"
+workspace "n-ary-tree"
 	cppdialect "C++17"
 	
 	configurations { "Debug32", "Release32" }
@@ -18,7 +18,7 @@ workspace "2gis_test_work"
 		linkoptions  { "-static -static-libstdc++" } 
 
 	
-project "2gis_test_work"
+project "n-ary-tree"
 	location "build"
 	language "C++"
 	kind "ConsoleApp"

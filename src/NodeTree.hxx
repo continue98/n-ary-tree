@@ -13,13 +13,12 @@
 
 namespace continue_n_tree
 {
-
 	// https://github.com/nlohmann/json#order-of-object-keys
 	template<class K, class V, class dummy_compare, class A>
 	using my_workaround_fifo_map = nlohmann::fifo_map<K, V, nlohmann::fifo_map_compare<K>, A>;
 	using json = nlohmann::basic_json<my_workaround_fifo_map>;
+	using tree_node_type = std::variant<std::string, int, double>;
 
-	typedef std::variant<std::string, int, double> tree_node_type;
 	enum node_types
 	{
 		STRING,
@@ -38,13 +37,13 @@ namespace continue_n_tree
 		NodeTree(const json& j);
 		NodeTree(std::filesystem::path input);
 
-		bool addNode(int key, std::shared_ptr<NodeTree> node);
+		bool addNode(int key, std::shared_ptr<NodeTree>& node);
 		bool addNode(int key, tree_node_type data);
 		bool removeNode(int key);
 		void setData(tree_node_type data);
-		tree_node_type getData();
-		std::wstring getDataAsString();
-		std::shared_ptr<NodeTree> getChild(int key);
+		tree_node_type getData() const;
+		std::wstring getDataAsString() const;
+		std::shared_ptr<NodeTree> getChild(int key) const;
 		json to_json();
 		void from_json(const json& j);
 		void save_file(std::filesystem::path output);

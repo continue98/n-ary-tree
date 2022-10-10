@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 	if (result.count("help"))
 	{
 		std::cout << options.help() << std::endl;
-		return 0;
+		return 1;
 	}
 	else if (result.count("generate"))
 	{
@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 
 		std::ofstream json_writer("example_tree.json");
 		json_writer << root->to_json().dump(4) << std::endl;
-		return 0;
+		return 1;
 
 	}
 	else if (result.count("input") && result.count("output"))
@@ -60,19 +60,19 @@ int main(int argc, char* argv[])
 		if (!std::filesystem::exists(input_path))
 		{
 			std::cout << "Input (file) param is not valid!" << std::endl;
-			return 0;
+			return 1;
 		}
 		if (!std::filesystem::exists(std::filesystem::absolute(output_path).parent_path()))
 		{
 			std::cout << "Output (file) param is not valid!" << std::endl;
-			return 0;
+			return 1;
 		}
 		std::shared_ptr<continue_n_tree::NodeTree> r = std::make_shared<continue_n_tree::NodeTree>(
 			result["input"].as<std::filesystem::path>()
-			);
+		);
 		r->printTree();
 		r->save_file(result["output"].as<std::filesystem::path>());
-		return 0;
+		return 1;
 	}
 	std::cout << options.help() << std::endl;
 	return 0;

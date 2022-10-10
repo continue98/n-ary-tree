@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third_party">
+      <UniqueIdentifier>{A6E46709-1270-D5CD-1B81-58C2878B31CE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third_party\cxxopts">
+      <UniqueIdentifier>{6E103E23-DA47-86BA-E351-EADD4F08ADB3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third_party\fifo-map">
+      <UniqueIdentifier>{2455FAA2-107A-4923-39C5-2EB325494841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\third_party\nlohmann">
+      <UniqueIdentifier>{705B9A00-5C80-E980-85CB-CE10714FE89E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\NodeTree.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\third_party\cxxopts\cxxopts.hpp">
+      <Filter>src\third_party\cxxopts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\third_party\fifo-map\fifo_map.hpp">
+      <Filter>src\third_party\fifo-map</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\third_party\nlohmann\json.hpp">
+      <Filter>src\third_party\nlohmann</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\NodeTree.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\main.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\premake5.lua" />
+  </ItemGroup>
+</Project>
